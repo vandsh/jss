@@ -1,0 +1,49 @@
+<!-- Demonstration Page rendering all fields out to the page in Editable Mode -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+<link href='/assets/styles/site.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+setTimeout(function sunrise () {
+  document.getElementsByClassName('header')[0].style.backgroundColor = '#db0000';
+}, 0);
+</script>
+
+<div class="default-page">
+  <div class="header">
+    <h1 id="main-title" class="container">Sails JSS.</h1>
+    <h3 class="container">You're looking at <%= model.name %> page: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
+  </div>
+  <div class="main container clearfix">
+    <ul class="getting-started">
+      <% for(var key in model.fields) {%>
+
+      <li class="clearfix">
+        <div class="clearfix"><%= key %></div>
+        <div class="step">
+          <%- model.fields[key].editable %>
+        </div>
+      </li>
+
+      <% }  %>
+    </ul>
+    <div class="links">
+      <!-- <h3>Links</h3> -->
+      <ul class="link-list">
+
+        <h4>Docs</h4>
+        <a target="_blank" href="http://sailsjs.org/#!/documentation/anatomy/myApp"><li>App Structure</li></a>
+        <a target="_blank" href="http://sailsjs.org/#!/documentation/reference"><li>Reference</li></a>
+        <a target="_blank" href="http://sailsjs.org/#!/documentation/concepts/extending-sails/Adapters/adapterList.html"><li>Supported Databases</li></a>
+
+        <h4>Tutorials</h4>
+        <a target="_blank" href="https://github.com/sails101"><li>Sails 101</li></a>
+
+        <h4>Community</h4>
+        <a target="_blank" href="http://stackoverflow.com/search?q=sails.js"><li>StackOverFlow</li></a>
+        <a target="_blank" href="https://github.com/balderdashy/sails"><li>GitHub</li></a>
+        <a target="_blank" href="https://groups.google.com/forum/#!forum/sailsjs"><li>Google Group</li></a>
+        <a target="_blank" href="http://webchat.freenode.net/"><li>IRC (#sailsjs on freenode)</li></a>
+
+      </ul>
+    </div>
+  </div>
+</div>
